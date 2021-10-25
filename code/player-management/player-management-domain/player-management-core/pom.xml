@@ -11,4 +11,22 @@
 
     <artifactId>player-management-core</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.riefel.dartcounter</groupId>
+            <artifactId>player-management-ports-incoming</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.riefel.dartcounter</groupId>
+            <artifactId>player-management-ports-outgoing</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

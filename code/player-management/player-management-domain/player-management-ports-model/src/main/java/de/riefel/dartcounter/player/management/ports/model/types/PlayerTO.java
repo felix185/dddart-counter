@@ -20,9 +20,13 @@ public class PlayerTO extends AbstractTO {
 
     public PlayerTO(final long id, final int version, final String nickname, final String firstname, final String name) {
         super(id, version);
-        this.nickname=nickname;
-        this.firstname=firstname;
-        this.name=name;
+        this.nickname = nickname;
+        this.firstname = firstname;
+        this.name = name;
+    }
+
+    public PlayerTO(final String nickname, final String firstname, final String name) {
+        this(0, 0, nickname, firstname, name);
     }
 
     /**
