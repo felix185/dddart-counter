@@ -11,4 +11,12 @@
 
     <artifactId>player-management-ports-incoming</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.riefel.dartcounter</groupId>
+            <artifactId>player-management-ports-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

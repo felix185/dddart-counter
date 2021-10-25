@@ -11,4 +11,11 @@
 
     <artifactId>player-management-ports-model</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.riefel.dartcounter</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
