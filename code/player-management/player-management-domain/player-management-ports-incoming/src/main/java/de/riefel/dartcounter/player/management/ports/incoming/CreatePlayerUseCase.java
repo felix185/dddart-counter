@@ -16,5 +16,5 @@ public interface CreatePlayerUseCase {
      * @param createPlayerCommand the command to create a new player with the included information.
      * @return the id of the created player.
      */
-    long handle(final CreatePlayerCommand createPlayerCommand);
+    long createPlayer(final CreatePlayerCommand createPlayerCommand);
 }

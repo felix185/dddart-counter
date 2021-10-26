@@ -31,7 +31,7 @@ public class PlayerManagementFacade implements CreatePlayerUseCase, QueryAllPlay
     }
 
     @Override
-    public long handle(final CreatePlayerCommand createPlayerCommand) {
+    public long createPlayer(final CreatePlayerCommand createPlayerCommand) {
         final Optional<PlayerTO> optionalExistingPlayerWithNickname = this.playerRepository.findPlayerByNickname(createPlayerCommand.getNickname());
         if (optionalExistingPlayerWithNickname.isPresent()) {
             throw new BusinessException(ErrorCode.ALREADY_EXISTING, "Player with nickname is already existing", createPlayerCommand.getNickname());
@@ -44,7 +44,7 @@ public class PlayerManagementFacade implements CreatePlayerUseCase, QueryAllPlay
     }
 
     @Override
-    public List<PlayerTO> handle() {
+    public List<PlayerTO> getAllPlayers() {
         return Collections.unmodifiableList(this.playerRepository.findAllPlayers());
     }
 }

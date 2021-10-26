@@ -17,5 +17,5 @@ public interface QueryAllPlayersUseCase {
      *
      * @return an <b>unmodifiable</b> {@link List} of all players as {@link PlayerTO}.
      */
-    List<PlayerTO> handle();
+    List<PlayerTO> getAllPlayers();
 }

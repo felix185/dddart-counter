@@ -28,7 +28,7 @@ class PlayerManagementFacadeTest {
 
     @Test
     void findAll_noPlayers_shouldReturnEmptyList() {
-        final List<PlayerTO> actual = underTest.handle();
+        final List<PlayerTO> actual = underTest.getAllPlayers();
         assertTrue(actual.isEmpty());
     }
 
@@ -38,7 +38,7 @@ class PlayerManagementFacadeTest {
         final PlayerTO player2 = playerRepository.save(new PlayerTO("Player 2", "Player", "Two"));
 
         final List<PlayerTO> expected = Arrays.asList(player1, player2);
-        final List<PlayerTO> actual = underTest.handle();
+        final List<PlayerTO> actual = underTest.getAllPlayers();
         assertEquals(expected.size(), actual.size());
         assertTrue(actual.containsAll(expected));
     }
@@ -48,7 +48,7 @@ class PlayerManagementFacadeTest {
         final String nickname = "Nickname";
         final String firstname = "Firstname";
         final String name = "Name";
-        underTest.handle(new CreatePlayerCommand(nickname, name, firstname));
+        underTest.createPlayer(new CreatePlayerCommand(nickname, name, firstname));
 
         final List<PlayerTO> existingPlayers = playerRepository.findAllPlayers();
         assertFalse(existingPlayers.isEmpty());
@@ -66,7 +66,7 @@ class PlayerManagementFacadeTest {
 
         playerRepository.save(new PlayerTO(nickname, "Other Firstname", "Other Name"));
 
-        final BusinessException bEx = assertThrows(BusinessException.class, () -> underTest.handle(new CreatePlayerCommand(nickname, name, firstname)));
+        final BusinessException bEx = assertThrows(BusinessException.class, () -> underTest.createPlayer(new CreatePlayerCommand(nickname, name, firstname)));
         assertTrue(bEx.getMessage().contains("Player with nickname is already existing"));
         assertEquals(1, bEx.getParameters().length);
         assertEquals("Nickname", bEx.getParameters()[0]);
