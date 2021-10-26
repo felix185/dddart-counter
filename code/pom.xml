@@ -13,6 +13,7 @@
     <modules>
         <module>common</module>
         <module>player-management</module>
+        <module>x01-game</module>
     </modules>
 
     <properties>
